@@ -1,0 +1,25 @@
+  <h2 mat-dialog-title>Product Form</h2>
+<mat-dialog-content>
+  <form [formGroup]="myProduct" (submit)="onSubmit()">
+    <div class="form-group">
+      <label for="img">Upload Image</label>
+      <input type="text" class="form-control" id="img"  formControlName="uploadImg">
+      <span class="small text-danger" *ngIf="myProduct.get('uploadImg').touched && !myProduct.get('uploadImg').valid || (myProduct.submitted && !myProduct.valid)">Imgage is required!</span>
+    </div>
+    <div class="form-group">
+      <label for="Pname">Product Name</label>
+      <input type="text" class="form-control" id="Pname" formControlName="productName">
+      <span class="small text-danger" *ngIf="myProduct.get('productName').touched && !myProduct.get('productName').valid || (myProduct.submitted && !myProduct.valid)">Product Name is required!</span>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="text" class="form-control" id="price" formControlName="price">
+      <span class="small text-danger" *ngIf="myProduct.get('price').touched && !myProduct.get('price').valid || (myProduct.submitted && !myProduct.valid)">Price is required!</span>
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Add Product</button>
+  </form>
+</mat-dialog-content>
+
+
